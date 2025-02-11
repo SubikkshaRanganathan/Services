@@ -1,0 +1,11 @@
+RewriteEngine On
+# Remove 'index' from URLs and redirect
+RewriteCond %{REQUEST_URI} ^/index/(.*)$ [NC]
+RewriteRule ^index/(.*)$ /$1 [R=301,L]
+
+# General URL rewriting rule
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ $1.html [L]
+
+
